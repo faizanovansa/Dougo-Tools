@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dougu — Perkakas Web Kecil</title>
+  <meta name="description" content="Dougu (道具): 20 perkakas web kecil — QR generator, password generator, JSON formatter, Base64, konverter warna, regex tester, JWT decoder, kompres gambar, dan lainnya. Gratis, tanpa akun, jalan langsung di browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <header class="topbar">
+    <span class="wordmark">
+      <svg class="monogram monogram-topbar" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect x="3" y="3" width="42" height="42" fill="none" stroke="#e8a51c" stroke-width="3"/>
+        <rect x="3" y="37" width="42" height="8" fill="#e8a51c"/>
+        <text x="24" y="30" text-anchor="middle" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-weight="900" font-size="24" fill="#f4f1e8">N</text>
+      </svg>
+      Dougu <span class="kanji-kecil" aria-hidden="true">道具</span>
+    </span>
+    <a class="topbar-link" href="https://github.com/faizanovansa" target="_blank" rel="noopener">GitHub</a>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="judul-dougu">
+      <p class="kicker">Perkakas web</p>
+      <h1 id="judul-dougu" class="nama">Dougu</h1>
+      <p class="kanji-raksasa" aria-hidden="true">道具</p>
+      <p class="tagline">Dua puluh perkakas kecil yang beneran kepake. Tanpa akun, tanpa iklan, jalan langsung di browser.</p>
+      <nav class="nav-kartu" aria-label="Daftar perkakas">
+        <a class="kartu-nav" href="#qr">
+          <span class="kartu-nav-nomor">01</span>
+          <span class="kartu-nav-nama">QR Generator</span>
+          <span class="kartu-nav-deskripsi">Ubah teks atau link jadi kode QR, unduh sebagai PNG.</span>
+        </a>
+        <a class="kartu-nav" href="#password">
+          <span class="kartu-nav-nomor">02</span>
+          <span class="kartu-nav-nama">Password Generator</span>
+          <span class="kartu-nav-deskripsi">Bikin password acak yang kuat, tinggal salin.</span>
+        </a>
+        <a class="kartu-nav" href="#palet">
+          <span class="kartu-nav-nomor">03</span>
+          <span class="kartu-nav-nama">Gambar jadi Palet</span>
+          <span class="kartu-nav-deskripsi">Upload gambar, ambil 6 warna dominannya.</span>
+        </a>
+        <a class="kartu-nav" href="#json">
+          <span class="kartu-nav-nomor">04</span>
+          <span class="kartu-nav-nama">JSON Formatter</span>
+          <span class="kartu-nav-deskripsi">Rapikan JSON yang minified biar gampang dibaca.</span>
+        </a>
+        <a class="kartu-nav" href="#base64">
+          <span class="kartu-nav-nomor">05</span>
+          <span class="kartu-nav-nama">Base64</span>
+          <span class="kartu-nav-deskripsi">Encode teks jadi Base64 atau decode sebaliknya.</span>
+        </a>
+        <a class="kartu-nav" href="#kata">
+          <span class="kartu-nav-nomor">06</span>
+          <span class="kartu-nav-nama">Penghitung Kata</span>
+          <span class="kartu-nav-deskripsi">Hitung kata, karakter, dan estimasi waktu baca.</span>
+        </a>
+        <a class="kartu-nav" href="#case">
+          <span class="kartu-nav-nomor">07</span>
+          <span class="kartu-nav-nama">Case Converter</span>
+          <span class="kartu-nav-deskripsi">Ubah kapitalisasi teks: KAPITAL, kecil, Title, camel, snake.</span>
+        </a>
+        <a class="kartu-nav" href="#warna">
+          <span class="kartu-nav-nomor">08</span>
+          <span class="kartu-nav-nama">Konverter Warna</span>
+          <span class="kartu-nav-deskripsi">HEX jadi RGB dan HSL, atau sebaliknya.</span>
+        </a>
+        <a class="kartu-nav" href="#kontras">
+          <span class="kartu-nav-nomor">09</span>
+          <span class="kartu-nav-nama">Contrast Checker</span>
+          <span class="kartu-nav-deskripsi">Cek rasio kontras dua warna (standar WCAG).</span>
+        </a>
+        <a class="kartu-nav" href="#gradient">
+          <span class="kartu-nav-nomor">10</span>
+          <span class="kartu-nav-nama">Gradient Generator</span>
+          <span class="kartu-nav-deskripsi">Bikin gradient, salin CSS-nya.</span>
+        </a>
+        <a class="kartu-nav" href="#lorem">
+          <span class="kartu-nav-nomor">11</span>
+          <span class="kartu-nav-nama">Lorem Ipsum Indonesia</span>
+          <span class="kartu-nav-deskripsi">Teks dummy Bahasa Indonesia buat mockup.</span>
+        </a>
+        <a class="kartu-nav" href="#markdown">
+          <span class="kartu-nav-nomor">12</span>
+          <span class="kartu-nav-nama">Markdown Preview</span>
+          <span class="kartu-nav-deskripsi">Tulis Markdown, lihat hasilnya langsung.</span>
+        </a>
+        <a class="kartu-nav" href="#regex">
+          <span class="kartu-nav-nomor">13</span>
+          <span class="kartu-nav-nama">Regex Tester</span>
+          <span class="kartu-nav-deskripsi">Tes pola regex dan lihat semua match-nya.</span>
+        </a>
+        <a class="kartu-nav" href="#uuid">
+          <span class="kartu-nav-nomor">14</span>
+          <span class="kartu-nav-nama">UUID Generator</span>
+          <span class="kartu-nav-deskripsi">Bikin UUID v4 acak, bisa banyak sekaligus.</span>
+        </a>
+        <a class="kartu-nav" href="#hash">
+          <span class="kartu-nav-nomor">15</span>
+          <span class="kartu-nav-nama">Hash Generator</span>
+          <span class="kartu-nav-deskripsi">Hash teks pakai SHA-256, 384, atau 512.</span>
+        </a>
+        <a class="kartu-nav" href="#urlenc">
+          <span class="kartu-nav-nomor">16</span>
+          <span class="kartu-nav-nama">URL Encoder/Decoder</span>
+          <span class="kartu-nav-deskripsi">Encode atau decode URL.</span>
+        </a>
+        <a class="kartu-nav" href="#jwt">
+          <span class="kartu-nav-nomor">17</span>
+          <span class="kartu-nav-nama">JWT Decoder</span>
+          <span class="kartu-nav-deskripsi">Intip isi header dan payload token JWT.</span>
+        </a>
+        <a class="kartu-nav" href="#kompres">
+          <span class="kartu-nav-nomor">18</span>
+          <span class="kartu-nav-nama">Kompres Gambar</span>
+          <span class="kartu-nav-deskripsi">Kecilkan ukuran file gambar (JPEG).</span>
+        </a>
+        <a class="kartu-nav" href="#konversi">
+          <span class="kartu-nav-nomor">19</span>
+          <span class="kartu-nav-nama">Konversi Gambar</span>
+          <span class="kartu-nav-deskripsi">Ubah format gambar: PNG, JPG, WebP.</span>
+        </a>
+        <a class="kartu-nav" href="#acak">
+          <span class="kartu-nav-nomor">20</span>
+          <span class="kartu-nav-nama">Random Picker</span>
+          <span class="kartu-nav-deskripsi">Bingung milih? Biar Dougu yang acak.</span>
+        </a>
+      </nav>
+    </section>
+
+    <!-- 01 · QR GENERATOR -->
+    <section class="bagian" id="qr" aria-labelledby="judul-qr">
+      <p class="kicker">01 · QR Generator</p>
+      <h2 id="judul-qr">Teks jadi kode QR.</h2>
+      <p class="bagian-deskripsi">Tempel link atau ketik teks apa aja, terus unduh QR-nya sebagai PNG.</p>
+
+      <label class="label" for="qr-input">Teks atau link</label>
+      <input class="input" type="text" id="qr-input" placeholder="https://contoh.com" autocomplete="off">
+      <div class="aksi">
+        <button class="tombol" id="qr-buat" type="button">Buat QR</button>
+        <button class="tombol-ghost" id="qr-unduh" type="button" disabled>Unduh PNG</button>
+      </div>
+      <p class="error" id="qr-error" role="alert" hidden></p>
+      <div class="hasil-qr" id="qr-hasil" aria-live="polite">
+        <p class="kosong">QR-nya bakal muncul di sini.</p>
+      </div>
+    </section>
+
+    <!-- 02 · PASSWORD GENERATOR -->
+    <section class="bagian" id="password" aria-labelledby="judul-password">
+      <p class="kicker">02 · Password Generator</p>
+      <h2 id="judul-password">Password acak yang kuat.</h2>
+      <p class="bagian-deskripsi">Dibuat langsung di browser pakai angka acak kriptografi — tidak dikirim ke mana-mana.</p>
+
+      <div class="slider-baris">
+        <label class="label" for="pw-panjang">Panjang: <output id="pw-panjang-nilai" for="pw-panjang">16</output> karakter</label>
+        <input type="range" id="pw-panjang" min="8" max="64" value="16" step="1">
+      </div>
+
+      <fieldset class="opsi">
+        <legend class="label">Isi password</legend>
+        <label class="cek"><input type="checkbox" id="pw-besar" checked> Huruf besar (A–Z)</label>
+        <label class="cek"><input type="checkbox" id="pw-kecil" checked> Huruf kecil (a–z)</label>
+        <label class="cek"><input type="checkbox" id="pw-angka" checked> Angka (0–9)</label>
+        <label class="cek"><input type="checkbox" id="pw-simbol"> Simbol (!@#$…)</label>
+      </fieldset>
+
+      <div class="aksi">
+        <button class="tombol" id="pw-buat" type="button">Buat password</button>
+        <button class="tombol-ghost" id="pw-salin" type="button" disabled>Salin</button>
+      </div>
+      <p class="error" id="pw-error" role="alert" hidden></p>
+
+      <div class="pw-output-wrap">
+        <label class="label sr-only" for="pw-output">Password yang dibuat</label>
+        <input class="input pw-output" type="text" id="pw-output" readonly placeholder="Password-nya muncul di sini." aria-live="polite">
+      </div>
+      <div class="kekuatan" id="pw-kekuatan" hidden>
+        <div class="kekuatan-bar"><span id="pw-kekuatan-isi"></span></div>
+        <p class="kekuatan-label">Kekuatan: <strong id="pw-kekuatan-teks">–</strong></p>
+      </div>
+    </section>
+
+    <!-- 03 · GAMBAR JADI PALET -->
+    <section class="bagian" id="palet" aria-labelledby="judul-palet">
+      <p class="kicker">03 · Gambar jadi Palet</p>
+      <h2 id="judul-palet">Warna dominan dari gambar.</h2>
+      <p class="bagian-deskripsi">Upload gambar, Dougu bacain 6 warna yang paling sering muncul. Klik warnanya buat nyalin kode hex.</p>
+
+      <div class="aksi">
+        <label class="tombol" for="palet-input">Pilih gambar
+          <input class="sr-only" type="file" id="palet-input" accept="image/*">
+        </label>
+      </div>
+      <p class="error" id="palet-error" role="alert" hidden></p>
+
+      <div class="palet-area" id="palet-area" hidden>
+        <img class="palet-pratinjau" id="palet-pratinjau" alt="Pratinjau gambar yang diupload">
+        <div class="swatch-list" id="palet-swatch" aria-live="polite"></div>
+      </div>
+      <p class="kosong" id="palet-kosong">Gambar yang lu pilih bakal muncul di sini.</p>
+    </section>
+
+    <!-- 04 · JSON FORMATTER -->
+    <section class="bagian" id="json" aria-labelledby="judul-json">
+      <p class="kicker">04 · JSON Formatter</p>
+      <h2 id="judul-json">JSON berantakan jadi rapi.</h2>
+      <p class="bagian-deskripsi">Tempel JSON yang minified atau berantakan, terus rapikan biar gampang dibaca.</p>
+
+      <label class="label" for="json-input">JSON mentah</label>
+      <textarea class="input area-mono" id="json-input" rows="6" placeholder='{"nama":"Faiz","umur":16}' spellcheck="false"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="json-rapikan" type="button">Rapikan</button>
+        <button class="tombol-ghost" id="json-salin" type="button" disabled>Salin</button>
+      </div>
+      <p class="error" id="json-error" role="alert" hidden></p>
+
+      <label class="label" for="json-output">Hasil</label>
+      <textarea class="input area-mono" id="json-output" rows="8" readonly placeholder="Hasil rapi muncul di sini." spellcheck="false" aria-live="polite"></textarea>
+    </section>
+
+    <!-- 05 · BASE64 -->
+    <section class="bagian" id="base64" aria-labelledby="judul-base64">
+      <p class="kicker">05 · Base64</p>
+      <h2 id="judul-base64">Encode dan decode Base64.</h2>
+      <p class="bagian-deskripsi">Ubah teks jadi Base64 atau sebaliknya. Satu tombol buat tukar arah.</p>
+
+      <label class="label" for="b64-input" id="b64-label-input">Teks biasa</label>
+      <textarea class="input area-mono" id="b64-input" rows="4" placeholder="Ketik teks di sini…"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="b64-proses" type="button">Encode →</button>
+        <button class="tombol-ghost" id="b64-tukar" type="button">Tukar arah</button>
+        <button class="tombol-ghost" id="b64-salin" type="button" disabled>Salin hasil</button>
+      </div>
+      <p class="error" id="b64-error" role="alert" hidden></p>
+
+      <label class="label" for="b64-output" id="b64-label-output">Hasil Base64</label>
+      <textarea class="input area-mono" id="b64-output" rows="4" readonly placeholder="Hasilnya muncul di sini." aria-live="polite"></textarea>
+    </section>
+
+    <!-- 06 · PENGHITUNG KATA -->
+    <section class="bagian" id="kata" aria-labelledby="judul-kata">
+      <p class="kicker">06 · Penghitung Kata</p>
+      <h2 id="judul-kata">Seberapa panjang tulisanmu.</h2>
+      <p class="bagian-deskripsi">Ketik atau tempel teks, statistiknya kehitung otomatis.</p>
+
+      <label class="label" for="kata-input">Teks</label>
+      <textarea class="input area-mono" id="kata-input" rows="6" placeholder="Ketik atau tempel teks di sini…"></textarea>
+
+      <dl class="statistik" aria-live="polite">
+        <div class="stat"><dt>Kata</dt><dd id="kata-jumlah">0</dd></div>
+        <div class="stat"><dt>Karakter (tanpa spasi)</dt><dd id="kata-tanpa-spasi">0</dd></div>
+        <div class="stat"><dt>Karakter (dengan spasi)</dt><dd id="kata-dengan-spasi">0</dd></div>
+        <div class="stat"><dt>Estimasi baca</dt><dd id="kata-waktu">0 detik</dd></div>
+      </dl>
+    </section>
+
+    <!-- 07 · CASE CONVERTER -->
+    <section class="bagian" id="case" aria-labelledby="judul-case">
+      <p class="kicker">07 · Case Converter</p>
+      <h2 id="judul-case">Ubah gaya kapitalisasi.</h2>
+      <p class="bagian-deskripsi">Satu teks, lima gaya kapitalisasi. Pilih yang lu butuhkan.</p>
+
+      <label class="label" for="case-input">Teks</label>
+      <textarea class="input area-mono" id="case-input" rows="4" placeholder="Ketik atau tempel teks di sini…"></textarea>
+      <div class="aksi">
+        <button class="tombol-ghost" type="button" data-case="kapital">KAPITAL</button>
+        <button class="tombol-ghost" type="button" data-case="kecil">kecil</button>
+        <button class="tombol-ghost" type="button" data-case="title">Title Case</button>
+        <button class="tombol-ghost" type="button" data-case="camel">camelCase</button>
+        <button class="tombol-ghost" type="button" data-case="snake">snake_case</button>
+      </div>
+      <p class="error" id="case-error" role="alert" hidden></p>
+
+      <label class="label" for="case-output">Hasil</label>
+      <textarea class="input area-mono" id="case-output" rows="4" readonly placeholder="Hasilnya muncul di sini." aria-live="polite"></textarea>
+      <div class="aksi">
+        <button class="tombol-ghost" id="case-salin" type="button" disabled>Salin</button>
+      </div>
+    </section>
+
+    <!-- 08 · KONVERTER WARNA -->
+    <section class="bagian" id="warna" aria-labelledby="judul-warna">
+      <p class="kicker">08 · Konverter Warna</p>
+      <h2 id="judul-warna">HEX, RGB, HSL.</h2>
+      <p class="bagian-deskripsi">Masukkan kode HEX buat lihat RGB dan HSL-nya — atau masukkan RGB buat dapat HEX-nya.</p>
+
+      <label class="label" for="warna-hex">Kode HEX</label>
+      <input class="input area-mono" type="text" id="warna-hex" placeholder="#E8A51C" autocomplete="off" spellcheck="false">
+      <div class="aksi">
+        <button class="tombol" id="warna-dari-hex" type="button">Konversi dari HEX</button>
+      </div>
+
+      <div class="label" id="warna-label-rgb">Atau dari RGB</div>
+      <div class="baris-tiga" role="group" aria-labelledby="warna-label-rgb">
+        <div>
+          <label class="label sr-only" for="warna-r">Red (0–255)</label>
+          <input class="input area-mono" type="number" id="warna-r" min="0" max="255" placeholder="R">
+        </div>
+        <div>
+          <label class="label sr-only" for="warna-g">Green (0–255)</label>
+          <input class="input area-mono" type="number" id="warna-g" min="0" max="255" placeholder="G">
+        </div>
+        <div>
+          <label class="label sr-only" for="warna-b">Blue (0–255)</label>
+          <input class="input area-mono" type="number" id="warna-b" min="0" max="255" placeholder="B">
+        </div>
+      </div>
+      <div class="aksi">
+        <button class="tombol" id="warna-dari-rgb" type="button">Konversi dari RGB</button>
+      </div>
+      <p class="error" id="warna-error" role="alert" hidden></p>
+
+      <div class="warna-preview" id="warna-preview" aria-hidden="true"></div>
+      <dl class="statistik" aria-live="polite">
+        <div class="stat"><dt>HEX</dt><dd class="stat-mono" id="warna-out-hex">–</dd></div>
+        <div class="stat"><dt>RGB</dt><dd class="stat-mono" id="warna-out-rgb">–</dd></div>
+        <div class="stat"><dt>HSL</dt><dd class="stat-mono" id="warna-out-hsl">–</dd></div>
+      </dl>
+    </section>
+
+    <!-- 09 · CONTRAST CHECKER -->
+    <section class="bagian" id="kontras" aria-labelledby="judul-kontras">
+      <p class="kicker">09 · Contrast Checker</p>
+      <h2 id="judul-kontras">Kontrasnya cukup nggak?</h2>
+      <p class="bagian-deskripsi">Pilih warna teks dan warna latar, Dougu cek rasio kontrasnya lawan standar aksesibilitas WCAG.</p>
+
+      <div class="baris-dua">
+        <div>
+          <label class="label" for="kontras-a">Warna teks</label>
+          <input type="color" class="input-warna" id="kontras-a" value="#F4F1E8">
+        </div>
+        <div>
+          <label class="label" for="kontras-b">Warna latar</label>
+          <input type="color" class="input-warna" id="kontras-b" value="#0D0E0B">
+        </div>
+      </div>
+
+      <dl class="statistik" aria-live="polite">
+        <div class="stat"><dt>Rasio kontras</dt><dd id="kontras-rasio">–</dd></div>
+        <div class="stat"><dt>Teks normal · AA <span class="stat-kecil">(min 4,5)</span></dt><dd><span class="badge" id="kontras-aa-normal">–</span></dd></div>
+        <div class="stat"><dt>Teks normal · AAA <span class="stat-kecil">(min 7)</span></dt><dd><span class="badge" id="kontras-aaa-normal">–</span></dd></div>
+        <div class="stat"><dt>Teks besar · AA <span class="stat-kecil">(min 3)</span></dt><dd><span class="badge" id="kontras-aa-besar">–</span></dd></div>
+        <div class="stat"><dt>Teks besar · AAA <span class="stat-kecil">(min 4,5)</span></dt><dd><span class="badge" id="kontras-aaa-besar">–</span></dd></div>
+      </dl>
+    </section>
+
+    <!-- 10 · GRADIENT GENERATOR -->
+    <section class="bagian" id="gradient" aria-labelledby="judul-gradient">
+      <p class="kicker">10 · Gradient Generator</p>
+      <h2 id="judul-gradient">Gradient siap pakai.</h2>
+      <p class="bagian-deskripsi">Pilih dua warna dan arahnya, salin CSS-nya.</p>
+
+      <div class="baris-dua">
+        <div>
+          <label class="label" for="grad-c1">Warna awal</label>
+          <input type="color" class="input-warna" id="grad-c1" value="#E8A51C">
+        </div>
+        <div>
+          <label class="label" for="grad-c2">Warna akhir</label>
+          <input type="color" class="input-warna" id="grad-c2" value="#0D0E0B">
+        </div>
+      </div>
+
+      <label class="label" for="grad-arah">Arah</label>
+      <select class="input" id="grad-arah">
+        <option value="kanan">Ke kanan</option>
+        <option value="bawah">Ke bawah</option>
+        <option value="diagonal">Diagonal</option>
+        <option value="radial">Melingkar (radial)</option>
+      </select>
+
+      <div class="gradient-preview" id="grad-preview" aria-hidden="true"></div>
+
+      <label class="label" for="grad-output">CSS</label>
+      <textarea class="input area-mono" id="grad-output" rows="2" readonly aria-live="polite"></textarea>
+      <div class="aksi">
+        <button class="tombol-ghost" id="grad-salin" type="button">Salin CSS</button>
+      </div>
+    </section>
+
+    <!-- 11 · LOREM IPSUM INDONESIA -->
+    <section class="bagian" id="lorem" aria-labelledby="judul-lorem">
+      <p class="kicker">11 · Lorem Ipsum Indonesia</p>
+      <h2 id="judul-lorem">Teks dummy Bahasa Indonesia.</h2>
+      <p class="bagian-deskripsi">Butuh teks pengisi buat mockup desain? Generate di sini, bukan lorem ipsum Latin.</p>
+
+      <label class="label" for="lorem-jumlah">Jumlah paragraf (1–10)</label>
+      <input class="input area-mono" type="number" id="lorem-jumlah" min="1" max="10" value="3">
+      <div class="aksi">
+        <button class="tombol" id="lorem-buat" type="button">Generate</button>
+        <button class="tombol-ghost" id="lorem-salin" type="button" disabled>Salin semua</button>
+      </div>
+      <p class="error" id="lorem-error" role="alert" hidden></p>
+
+      <div class="hasil-kotak lorem-output" id="lorem-output" aria-live="polite">
+        <p class="kosong">Paragrafnya bakal muncul di sini.</p>
+      </div>
+    </section>
+
+    <!-- 12 · MARKDOWN PREVIEW -->
+    <section class="bagian" id="markdown" aria-labelledby="judul-markdown">
+      <p class="kicker">12 · Markdown Preview</p>
+      <h2 id="judul-markdown">Markdown jadi HTML.</h2>
+      <p class="bagian-deskripsi">Ketik Markdown, hasilnya langsung ke-render: heading, bold, italic, code, list, dan link.</p>
+
+      <label class="label" for="md-input">Markdown</label>
+      <textarea class="input area-mono" id="md-input" rows="8" placeholder="# Judul&#10;&#10;Teks **tebal** dan *miring*, `kode`, serta [link](https://contoh.com).&#10;&#10;- daftar satu&#10;- daftar dua" spellcheck="false"></textarea>
+
+      <div class="md-output" id="md-output" aria-live="polite">
+        <p class="kosong">Hasil pratinjau muncul di sini.</p>
+      </div>
+    </section>
+
+    <!-- 13 · REGEX TESTER -->
+    <section class="bagian" id="regex" aria-labelledby="judul-regex">
+      <p class="kicker">13 · Regex Tester</p>
+      <h2 id="judul-regex">Tes pola regex.</h2>
+      <p class="bagian-deskripsi">Coba pola regex ke teks dan lihat semua bagian yang ke-match.</p>
+
+      <label class="label" for="regex-pola">Pola regex</label>
+      <input class="input area-mono" type="text" id="regex-pola" placeholder="\d+(\.\d+)?" autocomplete="off" spellcheck="false">
+      <label class="label" for="regex-flags">Flags (mis. g, i, m)</label>
+      <input class="input area-mono" type="text" id="regex-flags" value="g" autocomplete="off" spellcheck="false">
+      <label class="label" for="regex-teks">Teks uji</label>
+      <textarea class="input area-mono" id="regex-teks" rows="4" placeholder="Tempel teks buat diuji di sini…"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="regex-tes" type="button">Tes</button>
+      </div>
+      <p class="error" id="regex-error" role="alert" hidden></p>
+
+      <p class="regex-jumlah" id="regex-jumlah" aria-live="polite"></p>
+      <div class="hasil-kotak regex-hasil" id="regex-hasil" aria-live="polite">
+        <p class="kosong">Hasil match muncul di sini.</p>
+      </div>
+    </section>
+
+    <!-- 14 · UUID GENERATOR -->
+    <section class="bagian" id="uuid" aria-labelledby="judul-uuid">
+      <p class="kicker">14 · UUID Generator</p>
+      <h2 id="judul-uuid">UUID v4 acak.</h2>
+      <p class="bagian-deskripsi">Bikin satu atau banyak UUID sekaligus pakai angka acak kriptografi. Ketuk salah satu buat menyalin.</p>
+
+      <label class="label" for="uuid-jumlah">Jumlah (1–20)</label>
+      <input class="input area-mono" type="number" id="uuid-jumlah" min="1" max="20" value="1">
+      <div class="aksi">
+        <button class="tombol" id="uuid-buat" type="button">Generate</button>
+      </div>
+      <p class="error" id="uuid-error" role="alert" hidden></p>
+
+      <div class="uuid-list" id="uuid-list" aria-live="polite">
+        <p class="kosong">UUID-nya bakal muncul di sini.</p>
+      </div>
+    </section>
+
+    <!-- 15 · HASH GENERATOR -->
+    <section class="bagian" id="hash" aria-labelledby="judul-hash">
+      <p class="kicker">15 · Hash Generator</p>
+      <h2 id="judul-hash">Hash teks.</h2>
+      <p class="bagian-deskripsi">Ubah teks jadi hash SHA langsung di browser — tidak dikirim ke mana-mana.</p>
+
+      <label class="label" for="hash-input">Teks</label>
+      <textarea class="input area-mono" id="hash-input" rows="3" placeholder="Ketik teks yang mau di-hash…"></textarea>
+      <label class="label" for="hash-algo">Algoritma</label>
+      <select class="input" id="hash-algo">
+        <option value="SHA-256">SHA-256</option>
+        <option value="SHA-384">SHA-384</option>
+        <option value="SHA-512">SHA-512</option>
+      </select>
+      <div class="aksi">
+        <button class="tombol" id="hash-proses" type="button">Hash</button>
+        <button class="tombol-ghost" id="hash-salin" type="button" disabled>Salin</button>
+      </div>
+      <p class="error" id="hash-error" role="alert" hidden></p>
+
+      <label class="label" for="hash-output">Hasil (hex)</label>
+      <textarea class="input area-mono" id="hash-output" rows="3" readonly placeholder="Hash-nya muncul di sini." aria-live="polite"></textarea>
+    </section>
+
+    <!-- 16 · URL ENCODER/DECODER -->
+    <section class="bagian" id="urlenc" aria-labelledby="judul-urlenc">
+      <p class="kicker">16 · URL Encoder/Decoder</p>
+      <h2 id="judul-urlenc">Encode dan decode URL.</h2>
+      <p class="bagian-deskripsi">Amankan karakter spesial di URL biar valid, atau balikin ke bentuk semula.</p>
+
+      <label class="label" for="urlenc-input">Input</label>
+      <textarea class="input area-mono" id="urlenc-input" rows="4" placeholder="https://contoh.com/cari?q=kopi tubruk"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="urlenc-encode" type="button">Encode →</button>
+        <button class="tombol-ghost" id="urlenc-decode" type="button">Decode →</button>
+        <button class="tombol-ghost" id="urlenc-salin" type="button" disabled>Salin hasil</button>
+      </div>
+      <p class="error" id="urlenc-error" role="alert" hidden></p>
+
+      <label class="label" for="urlenc-output">Hasil</label>
+      <textarea class="input area-mono" id="urlenc-output" rows="4" readonly placeholder="Hasilnya muncul di sini." aria-live="polite"></textarea>
+    </section>
+
+    <!-- 17 · JWT DECODER -->
+    <section class="bagian" id="jwt" aria-labelledby="judul-jwt">
+      <p class="kicker">17 · JWT Decoder</p>
+      <h2 id="judul-jwt">Intip isi token JWT.</h2>
+      <p class="bagian-deskripsi">Baca header dan payload token langsung di browser. Signature <strong>tidak diverifikasi</strong> — jangan pakai tool ini buat validasi keamanan.</p>
+
+      <label class="label" for="jwt-input">Token JWT</label>
+      <textarea class="input area-mono" id="jwt-input" rows="4" placeholder="eyJhbGciOi…" autocomplete="off" spellcheck="false"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="jwt-decode" type="button">Decode</button>
+      </div>
+      <p class="error" id="jwt-error" role="alert" hidden></p>
+
+      <div id="jwt-hasil" hidden>
+        <p class="label">Header</p>
+        <div class="hasil-kotak"><pre id="jwt-header" aria-live="polite"></pre></div>
+        <p class="label">Payload</p>
+        <div class="hasil-kotak"><pre id="jwt-payload" aria-live="polite"></pre></div>
+      </div>
+    </section>
+
+    <!-- 18 · KOMPRES GAMBAR -->
+    <section class="bagian" id="kompres" aria-labelledby="judul-kompres">
+      <p class="kicker">18 · Kompres Gambar</p>
+      <h2 id="judul-kompres">Kecilkan ukuran gambar.</h2>
+      <p class="bagian-deskripsi">Atur kualitas JPEG-nya, lihat hematnya berapa, terus unduh hasilnya.</p>
+
+      <div class="aksi">
+        <label class="tombol" for="kompres-input">Pilih gambar
+          <input class="sr-only" type="file" id="kompres-input" accept="image/*">
+        </label>
+      </div>
+      <p class="error" id="kompres-error" role="alert" hidden></p>
+
+      <div id="kompres-area" hidden>
+        <img class="palet-pratinjau" id="kompres-pratinjau" alt="Pratinjau gambar yang diupload">
+        <div class="slider-baris">
+          <label class="label" for="kompres-kualitas">Kualitas JPEG: <output id="kompres-nilai" for="kompres-kualitas">80</output>%</label>
+          <input type="range" id="kompres-kualitas" min="10" max="100" value="80" step="5">
+        </div>
+        <dl class="statistik" aria-live="polite">
+          <div class="stat"><dt>Sebelum</dt><dd class="stat-mono" id="kompres-sebelum">–</dd></div>
+          <div class="stat"><dt>Sesudah</dt><dd class="stat-mono" id="kompres-sesudah">–</dd></div>
+          <div class="stat"><dt>Hemat</dt><dd id="kompres-hemat">–</dd></div>
+        </dl>
+        <div class="aksi">
+          <button class="tombol" id="kompres-unduh" type="button" disabled>Unduh hasil</button>
+        </div>
+      </div>
+      <p class="kosong" id="kompres-kosong">Gambar yang lu pilih bakal muncul di sini.</p>
+    </section>
+
+    <!-- 19 · KONVERSI GAMBAR -->
+    <section class="bagian" id="konversi" aria-labelledby="judul-konversi">
+      <p class="kicker">19 · Konversi Gambar</p>
+      <h2 id="judul-konversi">Ganti format gambar.</h2>
+      <p class="bagian-deskripsi">Upload gambar, pilih mau jadi PNG, JPG, atau WebP, terus unduh.</p>
+
+      <div class="aksi">
+        <label class="tombol" for="konversi-input">Pilih gambar
+          <input class="sr-only" type="file" id="konversi-input" accept="image/*">
+        </label>
+      </div>
+      <p class="error" id="konversi-error" role="alert" hidden></p>
+
+      <div id="konversi-area" hidden>
+        <img class="palet-pratinjau" id="konversi-pratinjau" alt="Pratinjau gambar yang diupload">
+        <label class="label" for="konversi-format">Format tujuan</label>
+        <select class="input" id="konversi-format">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPG</option>
+          <option value="webp">WebP</option>
+        </select>
+        <div class="aksi">
+          <button class="tombol" id="konversi-unduh" type="button">Unduh hasil</button>
+        </div>
+      </div>
+      <p class="kosong" id="konversi-kosong">Gambar yang lu pilih bakal muncul di sini.</p>
+    </section>
+
+    <!-- 20 · RANDOM PICKER -->
+    <section class="bagian" id="acak" aria-labelledby="judul-acak">
+      <p class="kicker">20 · Random Picker</p>
+      <h2 id="judul-acak">Biar Dougu yang milih.</h2>
+      <p class="bagian-deskripsi">Tulis pilihan satu per baris, terus tekan acak. Cocok buat yang bingung milih makan apa.</p>
+
+      <label class="label" for="acak-input">Pilihan (satu per baris)</label>
+      <textarea class="input area-mono" id="acak-input" rows="6" placeholder="Nasi goreng&#10;Mie ayam&#10;Sate padang"></textarea>
+      <div class="aksi">
+        <button class="tombol" id="acak-tombol" type="button">Acak!</button>
+      </div>
+      <p class="error" id="acak-error" role="alert" hidden></p>
+
+      <div class="pemenang" id="acak-pemenang" aria-live="polite" hidden></div>
+    </section>
+
+  </main>
+
+  <footer class="penutup">
+    <svg class="monogram monogram-footer" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <rect x="3" y="3" width="42" height="42" fill="none" stroke="#e8a51c" stroke-width="3"/>
+      <rect x="3" y="37" width="42" height="8" fill="#e8a51c"/>
+      <text x="24" y="30" text-anchor="middle" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-weight="900" font-size="24" fill="#f4f1e8">N</text>
+    </svg>
+    <p class="penutup-wordmark">Dougu <span aria-hidden="true">道具</span> — bagian dari Novansa Studio</p>
+    <p class="penutup-meta">© 2026 Faiza Novansa · Indonesia</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
