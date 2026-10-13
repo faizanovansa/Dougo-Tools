@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dougu — Perkakas Web Kecil</title>
-  <meta name="description" content="Dougu (道具): 20 perkakas web kecil — QR generator, password generator, JSON formatter, Base64, konverter warna, regex tester, JWT decoder, kompres gambar, dan lainnya. Gratis, tanpa akun, jalan langsung di browser.">
+  <title>Dougu — Direktori Web Berguna</title>
+  <meta name="description" content="Dougu (道具): direktori web berguna yang dikurasi — AI, desain, developer, produktivitas, belajar, hiburan — plus 20 perkakas buatan sendiri yang jalan langsung di browser.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,10 +29,25 @@
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="judul-dougu">
-      <p class="kicker">Perkakas web</p>
+      <p class="kicker">Direktori web</p>
       <h1 id="judul-dougu" class="nama">Dougu</h1>
       <p class="kanji-raksasa" aria-hidden="true">道具</p>
-      <p class="tagline">Dua puluh perkakas kecil yang beneran kepake. Tanpa akun, tanpa iklan, jalan langsung di browser.</p>
+      <p class="tagline">Direktori web berguna yang dikurasi — plus perkakas buatan sendiri.</p>
+      <div class="cari-wrap" role="search">
+        <label class="label sr-only" for="cari-link">Cari web di direktori</label>
+        <input class="input cari-input" type="search" id="cari-link" placeholder="Cari web… mis. AI, desain, musik" autocomplete="off">
+      </div>
+      <p class="cari-hasil" id="cari-hasil" aria-live="polite" hidden></p>
+    </section>
+
+    <!-- DIREKTORI (dirender dari DAFTAR_LINK di app.js) -->
+    <div id="direktori"></div>
+
+    <!-- PERKAKAS DOUGU -->
+    <section class="bagian" id="perkakas" aria-labelledby="judul-perkakas">
+      <p class="kicker">Perkakas Dougu</p>
+      <h2 id="judul-perkakas">Dibuat sendiri, jalan di browser.</h2>
+      <p class="bagian-deskripsi">Dua puluh perkakas kecil buatan sendiri. Tanpa akun, tanpa iklan, semua jalan langsung di browser.</p>
       <nav class="nav-kartu" aria-label="Daftar perkakas">
         <a class="kartu-nav" href="#qr">
           <span class="kartu-nav-nomor">01</span>

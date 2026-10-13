@@ -35,6 +35,122 @@
     selesai();
   }
 
+  /* ============ DIREKTORI WEB ============ */
+  var DAFTAR_LINK = [
+    { nama: "ChatGPT", url: "https://chat.openai.com", deskripsi: "Chatbot AI serbaguna", kategori: "AI" },
+    { nama: "Claude", url: "https://claude.ai", deskripsi: "AI yang jago nulis dan ngoding", kategori: "AI" },
+    { nama: "Gemini", url: "https://gemini.google.com", deskripsi: "AI gratis dari Google", kategori: "AI" },
+    { nama: "Perplexity", url: "https://perplexity.ai", deskripsi: "Search engine bertenaga AI", kategori: "AI" },
+    { nama: "Hugging Face", url: "https://huggingface.co", deskripsi: "Gudangnya model AI open-source", kategori: "AI" },
+    { nama: "Canva", url: "https://www.canva.com", deskripsi: "Desain kilat tanpa install", kategori: "Desain" },
+    { nama: "Figma", url: "https://www.figma.com", deskripsi: "Desain UI kolaboratif", kategori: "Desain" },
+    { nama: "Coolors", url: "https://coolors.co", deskripsi: "Generator palet warna", kategori: "Desain" },
+    { nama: "Unsplash", url: "https://unsplash.com", deskripsi: "Foto gratis kualitas tinggi", kategori: "Desain" },
+    { nama: "Google Fonts", url: "https://fonts.google.com", deskripsi: "Koleksi font gratis", kategori: "Desain" },
+    { nama: "GitHub", url: "https://github.com", deskripsi: "Rumahnya kode", kategori: "Developer" },
+    { nama: "Stack Overflow", url: "https://stackoverflow.com", deskripsi: "Tanya jawab programmer", kategori: "Developer" },
+    { nama: "MDN", url: "https://developer.mozilla.org", deskripsi: "Dokumentasi web terlengkap", kategori: "Developer" },
+    { nama: "CodePen", url: "https://codepen.io", deskripsi: "Coba-coba kode langsung di browser", kategori: "Developer" },
+    { nama: "Vercel", url: "https://vercel.com", deskripsi: "Deploy web gratis", kategori: "Developer" },
+    { nama: "Google Drive", url: "https://drive.google.com", deskripsi: "Simpan file di awan", kategori: "Produktivitas" },
+    { nama: "Notion", url: "https://www.notion.so", deskripsi: "Catatan + wiki + database", kategori: "Produktivitas" },
+    { nama: "Trello", url: "https://trello.com", deskripsi: "Papan kanban buat atur kerjaan", kategori: "Produktivitas" },
+    { nama: "Khan Academy", url: "https://www.khanacademy.org", deskripsi: "Belajar gratis semua mapel", kategori: "Belajar" },
+    { nama: "Duolingo", url: "https://www.duolingo.com", deskripsi: "Belajar bahasa sambil main", kategori: "Belajar" },
+    { nama: "Wikipedia", url: "https://id.wikipedia.org", deskripsi: "Ensiklopedia bebas", kategori: "Belajar" },
+    { nama: "YouTube", url: "https://www.youtube.com", deskripsi: "Nonton apa aja", kategori: "Hiburan" },
+    { nama: "Spotify", url: "https://open.spotify.com", deskripsi: "Dengerin musik", kategori: "Hiburan" },
+    { nama: "Novanime", url: "https://novanime-five.vercel.app", deskripsi: "Nonton anime subtitle Indonesia — buatan Faiz sendiri", kategori: "Hiburan" },
+    { nama: "Grok", url: "https://grok.com", deskripsi: "AI dari xAI, nyambung info terkini", kategori: "AI" },
+    { nama: "Copilot", url: "https://copilot.microsoft.com", deskripsi: "AI asisten dari Microsoft", kategori: "AI" },
+    { nama: "Leonardo AI", url: "https://leonardo.ai", deskripsi: "Bikin gambar dari teks", kategori: "AI" },
+    { nama: "Character.AI", url: "https://character.ai", deskripsi: "Ngobrol sama karakter AI", kategori: "AI" },
+    { nama: "Pexels", url: "https://www.pexels.com", deskripsi: "Foto dan video stok gratis", kategori: "Desain" },
+    { nama: "Remove.bg", url: "https://www.remove.bg", deskripsi: "Hapus background foto otomatis", kategori: "Desain" },
+    { nama: "TinyPNG", url: "https://tinypng.com", deskripsi: "Kecilin ukuran gambar tanpa pecah", kategori: "Desain" },
+    { nama: "npm", url: "https://www.npmjs.com", deskripsi: "Gudang library JavaScript", kategori: "Developer" },
+    { nama: "DevDocs", url: "https://devdocs.io", deskripsi: "Dokumentasi API cepat dalam satu tempat", kategori: "Developer" },
+    { nama: "Regex101", url: "https://regex101.com", deskripsi: "Tes dan bedah regex live", kategori: "Developer" },
+    { nama: "Google Calendar", url: "https://calendar.google.com", deskripsi: "Jadwal dan pengingat", kategori: "Produktivitas" },
+    { nama: "Todoist", url: "https://todoist.com", deskripsi: "To-do list yang rapi", kategori: "Produktivitas" },
+    { nama: "Zenius", url: "https://www.zenius.net", deskripsi: "Belajar ala Indonesia, ada video pembahasan", kategori: "Belajar" },
+    { nama: "Ruangguru", url: "https://www.ruangguru.com", deskripsi: "Les online + latihan soal", kategori: "Belajar" },
+    { nama: "AniList", url: "https://anilist.co", deskripsi: "Catat dan tracking anime yang ditonton", kategori: "Hiburan" },
+    { nama: "YouTube Music", url: "https://music.youtube.com", deskripsi: "Streaming musik dari YouTube", kategori: "Musik" },
+    { nama: "SoundCloud", url: "https://soundcloud.com", deskripsi: "Musik indie dan remix", kategori: "Musik" },
+    { nama: "Kompas", url: "https://www.kompas.com", deskripsi: "Berita terkini Indonesia", kategori: "Berita" },
+    { nama: "Detik", url: "https://www.detik.com", deskripsi: "Berita cepat update", kategori: "Berita" },
+    { nama: "BBC Indonesia", url: "https://www.bbc.com/indonesia", deskripsi: "Berita dunia versi BBC", kategori: "Berita" },
+    { nama: "X", url: "https://x.com", deskripsi: "Timeline dan tren terkini", kategori: "Sosial Media" },
+    { nama: "Instagram", url: "https://www.instagram.com", deskripsi: "Foto, reels, dan story", kategori: "Sosial Media" },
+    { nama: "TikTok", url: "https://www.tiktok.com", deskripsi: "Video pendek candu", kategori: "Sosial Media" },
+    { nama: "Reddit", url: "https://www.reddit.com", deskripsi: "Forum diskusi segala topik", kategori: "Sosial Media" },
+    { nama: "Bitly", url: "https://bitly.com", deskripsi: "Perpendek link panjang", kategori: "Tools Online" },
+    { nama: "WeTransfer", url: "https://wetransfer.com", deskripsi: "Kirim file besar tanpa akun", kategori: "Tools Online" },
+    { nama: "ILovePDF", url: "https://www.ilovepdf.com", deskripsi: "Edit, kompres, gabung PDF", kategori: "Tools Online" },
+    { nama: "Temp Mail", url: "https://temp-mail.org", deskripsi: "Email sekali pakai anti spam", kategori: "Tools Online" },
+    { nama: "Tokopedia", url: "https://www.tokopedia.com", deskripsi: "Belanja online ijo", kategori: "Belanja" },
+    { nama: "Shopee", url: "https://shopee.co.id", deskripsi: "Belanja online oren", kategori: "Belanja" }
+  ];
+
+  var URUT_KATEGORI = ["AI", "Desain", "Developer", "Produktivitas", "Belajar", "Hiburan", "Musik", "Berita", "Sosial Media", "Tools Online", "Belanja"];
+
+  (function direktori() {
+    var wadah = document.getElementById("direktori");
+    var cari = document.getElementById("cari-link");
+    var infoHasil = document.getElementById("cari-hasil");
+    if (!wadah || !cari) return;
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function kartu(l) {
+      return '<a class="kartu-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+        '<span class="kartu-link-nama">' + esc(l.nama) + ' <span class="panah" aria-hidden="true">→</span></span>' +
+        '<span class="kartu-link-deskripsi">' + esc(l.deskripsi) + '</span></a>';
+    }
+
+    function render(filter) {
+      var f = filter.trim().toLowerCase();
+      var html = "";
+      var total = 0;
+      URUT_KATEGORI.forEach(function (kat) {
+        var cocok = DAFTAR_LINK.filter(function (l) {
+          if (l.kategori !== kat) return false;
+          if (!f) return true;
+          return (l.nama + " " + l.deskripsi + " " + l.kategori).toLowerCase().indexOf(f) !== -1;
+        });
+        if (!cocok.length) return;
+        total += cocok.length;
+        html += '<section class="bagian" aria-label="Kategori ' + esc(kat) + '">' +
+          '<p class="kicker">Direktori · ' + esc(kat) + '</p>' +
+          '<h2>' + esc(kat) + '</h2>' +
+          '<div class="link-grid">' + cocok.map(kartu).join("") + '</div></section>';
+      });
+      if (!total) {
+        html = '<section class="bagian"><p class="kicker">Direktori</p>' +
+          '<p class="kosong">Nggak ketemu web yang cocok sama "' + esc(filter.trim()) + '". Coba kata kunci lain.</p></section>';
+      }
+      wadah.innerHTML = html;
+      if (f) {
+        infoHasil.hidden = false;
+        infoHasil.textContent = total ? ("Ketemu " + total + " web.") : "Nggak ketemu.";
+      } else {
+        infoHasil.hidden = true;
+        infoHasil.textContent = "";
+      }
+    }
+
+    var t;
+    cari.addEventListener("input", function () {
+      clearTimeout(t);
+      t = setTimeout(function () { render(cari.value); }, 150);
+    });
+    render("");
+  })();
+
   /* ============ 01 · QR GENERATOR ============ */
   (function qr() {
     var input = document.getElementById("qr-input");

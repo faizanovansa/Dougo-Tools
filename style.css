@@ -692,3 +692,71 @@ input[type="color"].input-warna:focus-visible {
 @media (min-width: 720px) {
   .uuid-list { max-width: 40rem; }
 }
+
+/* ============ DIREKTORI ============ */
+.cari-wrap {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 36rem;
+}
+
+.cari-input {
+  font-size: 1.05rem;
+  padding: 1rem 1.2rem;
+}
+
+input[type="search"].cari-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.cari-hasil {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--abu);
+  position: relative;
+  z-index: 2;
+}
+
+.link-grid {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.kartu-link {
+  display: block;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  padding: 1.15rem 1.25rem;
+  text-decoration: none;
+  color: var(--kertas);
+}
+
+.kartu-link:hover { border-color: var(--kunyit); }
+.kartu-link:hover .kartu-link-nama { color: var(--kunyit); }
+
+.kartu-link-nama {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.kartu-link-nama .panah {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.kartu-link-deskripsi {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--abu);
+  line-height: 1.55;
+}
+
+@media (min-width: 720px) {
+  .link-grid { grid-template-columns: repeat(3, 1fr); }
+}
